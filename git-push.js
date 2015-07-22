@@ -1,3 +1,5 @@
+var argv = require('argv');
+
 var spawn = require('child_process').spawn;
 var exec = require('child_process').exec;
 
@@ -18,6 +20,8 @@ function sh(cmd, callback) {
 }
 */
 
+/* ==============================
+
 function _sh(command, callback){
   return exec(command, function(err,stdout,stderr){
     console.log(command);
@@ -36,4 +40,13 @@ function sh(command){
   return _sh(command,null);
 }
 
-sh('echo "hello"');
+============================== */
+
+argv.option({
+	name: 'mode',
+	short: 'm',
+	type : 'string',
+	description :'select mode: commit | push'
+});
+
+console.log(argv.run());
